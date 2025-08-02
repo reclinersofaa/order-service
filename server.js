@@ -16,6 +16,11 @@ app.get('/health', (req, res) => {
     });
 });
 
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', promClient.register.contentType);
+  res.end(await promClient.register.metrics());
+});
+
 // Basic order endpoints
 app.get('/api/orders', (req, res) => {
     res.json({
