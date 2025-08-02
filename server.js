@@ -2,6 +2,9 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3002;
+const promClient = require('prom-client');
+promClient.collectDefaultMetrics();
+
 
 // Middleware
 app.use(express.json());
